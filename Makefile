@@ -12,8 +12,8 @@ prefix ?= /usr/local
 includedir = $(prefix)/include
 
 cryptodev-objs = ioctl.o main.o cryptlib.o authenc.o zc.o util.o
-
 obj-m += cryptodev.o
+ccflags-y := -Xclang -load -Xclang /home/pranavk/projects/llvm-transformation-pass/build/hello/LLVMHelloWorld.so
 
 KERNEL_MAKE_OPTS := -C $(KERNEL_DIR) M=$(CURDIR)
 ifneq ($(ARCH),)
